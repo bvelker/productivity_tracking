@@ -11,3 +11,34 @@ INFO:root:Script started.
 WARNING:pynput.keyboard.Listener:This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
 INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
 INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:root:Script started.
+WARNING:pynput.keyboard.Listener:This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:root:Script started.
+WARNING:pynput.keyboard.Listener:This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
+ERROR:pynput.keyboard.Listener:Unhandled exception in listener callback
+Traceback (most recent call last):
+  File "/Users/bear/opt/anaconda3/envs/vsdefault/lib/python3.11/site-packages/pynput/_util/__init__.py", line 228, in inner
+    return f(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/bear/opt/anaconda3/envs/vsdefault/lib/python3.11/site-packages/pynput/_util/darwin.py", line 265, in _handler
+    self._handle(proxy, event_type, event, refcon)
+  File "/Users/bear/opt/anaconda3/envs/vsdefault/lib/python3.11/site-packages/pynput/keyboard/_darwin.py", line 269, in _handle
+    self.on_press(key)
+  File "/Users/bear/opt/anaconda3/envs/vsdefault/lib/python3.11/site-packages/pynput/_util/__init__.py", line 144, in inner
+    if f(*args) is False:
+       ^^^^^^^^
+  File "/Users/bear/Desktop/productivity_tracking/keystroke_counter.py", line 51, in on_press
+    keystrokes += 1
+TypeError: unsupported operand type(s) for +=: 'dict' and 'int'
+INFO:root:Script started.
+WARNING:pynput.keyboard.Listener:This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
+INFO:root:Script started.
+WARNING:pynput.keyboard.Listener:This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:root:Script started.
+WARNING:pynput.keyboard.Listener:This process is not trusted! Input event monitoring will not be possible until it is added to accessibility clients.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+INFO:matplotlib.category:Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.

@@ -1,9 +1,10 @@
-import os
-import yaml
+import os, yaml
 from pynput.keyboard import Key, Listener
 import datetime
 import matplotlib.pyplot as plt
 import logging
+from lines_added_github_api import GithubTracker
+from dotenv import load_dotenv
 
 # Define the working directory and log file path
 working_directory = os.path.join("/Users/bear/Desktop/productivity_tracking/", "working_directory")
@@ -54,33 +55,49 @@ def on_release(key):
         return False
 
 def graph_data(data):
-    dates = list(data.keys())
-    counts = list(data.values())
+    dates = sorted(data.keys())
+    counts = [data[date]['keystrokes'] if isinstance(data[date], dict) else data[date] for date in dates]
 
     plt.plot(dates, counts, marker='o')
-    plt.xticks(rotation=45)
-    plt.tight_layout()
+    plt.title('Keystrokes Over Time')
+    plt.xlabel('Date')
     plt.ylabel('Keystrokes')
-    plt.title('Daily Keystrokes Count')
+    plt.grid(True)
     plt.show()
+
 
 def main():
     # Load existing data
     data = load_data()
+    global keystrokes
     if current_date in data:
-        global keystrokes
-        keystrokes = data[current_date]
+        keystrokes = data[current_date]['keystrokes']
+    else:
+        keystrokes = 0
 
     with Listener(on_press=on_press, on_release=on_release) as listener:
         listener.join()
+
     # Save updated data
-    data[current_date] = keystrokes
+    data[current_date] = {
+        'keystrokes': keystrokes,
+    }
+    
+    # Load environment variables
+    load_dotenv()
+    username = 'bvelker'
+    token = os.environ['GITHUB_TOKEN']
+    tracker = GithubTracker(username, token)
+
+    # Get GitHub commit data
+    github_data = tracker.generate_yaml_ready_dict(datetime.datetime.now())
+    data[current_date]['github_data'] = github_data
+
     save_data(data)
 
     # Graph data
     graph_data(data)
 
+
 if __name__ == '__main__':
     main()
-
-

@@ -1,0 +1,3 @@
+*.env
+failed_alternative_setup_scripts/
+__pycache__/
